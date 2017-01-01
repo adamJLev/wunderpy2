@@ -1,13 +1,10 @@
-import requests
-import sys
-import json
-
-from . import model as wp_model
+from . import folders_endpoint
 from . import lists_endpoint
 from . import tasks_endpoint
 from . import notes_endpoint
 from . import subtasks_endpoint
 from . import positions_endpoints
+
 
 class WunderClient:
     # TODO Factor our these methods into subclasses, for easier logical organization
@@ -43,6 +40,30 @@ class WunderClient:
                 'X-Client-ID' : self.client_id
                 }
         return self.api.request(endpoint, method=method, headers=headers, params=params, data=data)
+
+    def get_folders(self):
+        ''' Gets all the user's folders '''
+        return folders_endpoint.get_folders(self)
+
+    def get_folder(self, folder_id):
+        ''' Gets information about the folder with the given ID '''
+        return folders_endpoint.get_folder(self, folder_id)
+
+    def create_folder(self, folder_id, list_ids):
+        ''' Creates a new folder with the given title and list_ids '''
+        return folders_endpoint.create_folder(self, folder_id, list_ids)
+
+    def update_folder(self, folder_id, revision, title, list_ids):
+        ''' Updates the folder with the given ID to have the given title and list_ids '''
+        return folders_endpoint.update_folder(self, folder_id, revision, title=title, list_ids=list_ids)
+
+    def delete_folder(self, folder_id, revision):
+        ''' Deletes the folder with the given ID '''
+        return folders_endpoint.delete_folder(self, folder_id, revision)
+
+    def get_folder_revisions(self):
+        ''' Gets all the user's folder revisions '''
+        return folders_endpoint.get_folder_revisions(self)
 
     def get_lists(self):
         ''' Gets all the user's lists '''
