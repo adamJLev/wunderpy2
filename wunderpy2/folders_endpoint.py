@@ -12,8 +12,10 @@ def _check_title_length(title, api):
 
 def _is_lists_of_digits(list_ids):
     ''' Checks the given list_ids contains only digits '''
-    for s in list_ids:
-        if not s.isdigit():
+    for item in list_ids:
+        try:
+            int(item)
+        except ValueError:
             raise ValueError("List ids must contains only digits")
 
 
