@@ -17,6 +17,8 @@ class WunderApi:
         if api_version:
             class _Endpoints: 
                 TASKS = "tasks"
+                FOLDERS = "folders"
+                FOLDER_REVISIONS = "folder_revisions"
                 LISTS = "lists"
                 NOTES = "notes"
                 SUBTASKS = "subtasks"

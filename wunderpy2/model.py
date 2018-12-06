@@ -14,6 +14,10 @@ class _WunderlistEntity(_WunderlistObj):
     CREATION_TIMESTAMP = 'created_at'
     CREATED_BY_ID = 'created_by_id'
 
+class Folder(_WunderlistEntity):
+    TITLE = 'title'
+    LISTS_IDS = 'list_ids'
+
 class List(_WunderlistEntity):
     ''' POPO to contain list JSON keys '''
     TITLE = 'title'

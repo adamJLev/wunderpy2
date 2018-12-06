@@ -55,7 +55,6 @@ TODO
     * Avatar
     * File
     * File preview
-    * Folder
     * Reminder
     * Task comment
     * Upload
